@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Tool Interface</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 2em; }
+        #response { white-space: pre-wrap; border: 1px solid #ccc; padding: 1em; margin-top: 1em; }
+    </style>
+</head>
+<body>
+    <h1>AI Tool Interface</h1>
+    <textarea id="prompt" rows="4" cols="50" placeholder="Enter your prompt here..."></textarea><br>
+    <button onclick="sendPrompt()">Send</button>
+    <div id="response"></div>
+    <script>
+        async function sendPrompt() {
+            const prompt = document.getElementById('prompt').value;
+            const res = await fetch('/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({prompt})
+            });
+            const data = await res.json();
+            if (data.response) {
+                document.getElementById('response').textContent = data.response;
+            } else {
+                document.getElementById('response').textContent = 'Error: ' + data.error;
+            }
+        }
+    </script>
+</body>
+</html>
