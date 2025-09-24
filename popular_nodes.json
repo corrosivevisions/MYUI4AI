@@ -1,0 +1,17 @@
+[
+  {
+    "name": "ComfyUI-Impact-Pack",
+    "repo": "https://github.com/ltdrdata/ComfyUI-Impact-Pack.git",
+    "enabled": false
+  },
+  {
+    "name": "ComfyUI-Essentials",
+    "repo": "https://github.com/cubiq/ComfyUI_essentials.git",
+    "enabled": false
+  },
+  {
+    "name": "ComfyUI-ControlNet-Preprocessors",
+    "repo": "https://github.com/Fannovel16/comfyui_controlnet_preprocessors.git",
+    "enabled": false
+  }
+]
